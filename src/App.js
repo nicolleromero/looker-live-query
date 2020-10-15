@@ -2,6 +2,9 @@ import React, { useRef, useState } from 'react';
 import { QueryBuilderComponent } from '@syncfusion/ej2-react-querybuilder';
 import { Col, Container, Navbar, Row } from 'react-bootstrap';
 
+import ProjectForm from './ProjectForm';
+// import Formatter from './Formatter';
+
 import './App.css';
 
 const columnData = [
@@ -39,6 +42,7 @@ const employeeColumnData = [
 export default function App() {
   const queryBuilderRef = useRef(null);
   const [rule, setRule] = useState({});
+  const [project, setProject] = useState('');
 
   const sql = queryBuilderRef.current?.getSqlFromRules(rule);
 
@@ -55,6 +59,14 @@ export default function App() {
         </Navbar>
       </Container>
       <Container>
+        <Row>
+          <Col className="middle">
+            <ProjectForm
+              project={project}
+              onSelectProject={setProject}
+            />
+          </Col>
+        </Row>
         <Row>
           <Col className="middle">
             <QueryBuilderComponent
