@@ -10,25 +10,32 @@ export default function ProjectForm(props) {
           <FormControl
             type="text"
             className="form-field"
-            placeholder="Select a database"
+            placeholder="Select a project"
             value={props.project}
-            onChange={(e) => props.onSearch(e.target.value)}
+            onChange={(e) => props.onSelectProject(e.target.value)}
+          />
+          <FormControl
+            type="text"
+            className="form-field"
+            placeholder="Select a dataset"
+            value={props.dataset}
+            onChange={(e) => props.onSelectDataset(e.target.value)}
           />
           <FormControl
             type="text"
             className="form-field"
             placeholder="Select a table"
-            value={props.search}
-            onChange={(e) => props.onSelectProject(e.target.value)}
+            value={props.table}
+            onChange={(e) => props.onSelectTable(e.target.value)}
           />
-          <Button
+          {/* <Button
             type="submit"
             className="add-button"
             variant="outline-secondary"
             disabled={!props.project.trim()}
           >
             Submit
-          </Button>
+          </Button> */}
         </Form>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { QueryBuilderComponent } from '@syncfusion/ej2-react-querybuilder';
 import { Col, Container, Navbar, Row } from 'react-bootstrap';
 
@@ -41,20 +41,26 @@ const employeeColumnData = [
 
 export default function App() {
   const queryBuilderRef = useRef(null);
-  const [rule, setRule] = useState({});
+  const [rule, setRule] = useState(undefined);
   const [project, setProject] = useState('');
+  const [dataset, setDataset] = useState('');
+  const [table, setTable] = useState('');
 
   const sql = queryBuilderRef.current?.getSqlFromRules(rule);
 
   console.log('RULE', rule);
   console.log('SQL', sql);
 
+  const fullName = "" + project + "." + dataset + "." + table;
+  const select = "SELECT * FROM " + "`" + fullName + "`";
+
+
   return (
     <div className="site-wrapper">
       <Container>
         <Navbar id="cover-image">
           <Row className="d-none d-lg-block justify-content-between offset-2">
-            <h1 className="h1">Looker Live Query</h1>
+            <h1 className="h1">Live Query Builder</h1>
           </Row>
         </Navbar>
       </Container>
@@ -63,7 +69,11 @@ export default function App() {
           <Col className="middle">
             <ProjectForm
               project={project}
+              dataset={dataset}
+              table={table}
               onSelectProject={setProject}
+              onSelectDataset={setDataset}
+              onSelectTable={setTable}
             />
           </Col>
         </Row>
@@ -71,13 +81,15 @@ export default function App() {
           <Col className="middle">
             <QueryBuilderComponent
               ref={queryBuilderRef}
-              rule={rule}
               columns={columnData}
               enableNotCondition={true}
               ruleChange={(e) => setRule(e.rule)}
             />
           </Col>
           <Col className="middle preview">
+            {project && dataset && table && (
+              <p>{select}</p>
+            )}
             <p>{sql}</p>
             {/* <Formatter /> */}
           </Col>

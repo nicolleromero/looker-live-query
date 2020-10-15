@@ -31,5 +31,27 @@
 
 h1 {
   font-size: 32px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
+}
+
+.form-field {
+  width: 250px !important;
+  height: 20px;
+  padding: 10px;
+  margin: 5px;
+  text-align: center;
+  font-size: 16px;
+  /* display: flex;
+  flex-direction: row; */
+}
+
+.delete-button {
+  margin-left: 5px;
+  padding-left: 5px;
+  font-size: 18px;
+  align-self: flex-end;
+}
+
+.add-button {
+  width: 100px;
 }
