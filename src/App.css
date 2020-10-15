@@ -1,41 +1,34 @@
 @import "https://cdn.syncfusion.com/ej2/material.css";
 
-
-.App {
+.site-wrapper {
+  margin: 0 auto;
   text-align: center;
+  padding-top: 100px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.center-children {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  flex-direction: row;
 }
 
-.App-link {
-  color: #61dafb;
+.middle {
+  width: 80%;
+  margin-left: 150px;
+  margin-right: 150px;
+  margin-top: 20px;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.preview {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #004085;
+  min-height: 200px;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 50px;
 }
