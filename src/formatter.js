@@ -9,7 +9,7 @@ export default function Formatter(props) {
 
     return (
         <div className="center-children">
-            <pre className="format-sql">{formattedText}</pre>
+            <pre className="format-sql"><code className="language-sql">{formattedText}</code></pre>
         </div>
     )
 }
