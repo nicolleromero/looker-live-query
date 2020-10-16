@@ -3,7 +3,7 @@ import { QueryBuilderComponent } from '@syncfusion/ej2-react-querybuilder';
 import { Col, Container, Navbar, Row } from 'react-bootstrap';
 
 import ProjectForm from './ProjectForm';
-// import Formatter from './Formatter';
+import Formatter from './Formatter';
 
 import './App.css';
 
@@ -91,7 +91,7 @@ export default function App() {
               <p>{select}</p>
             )}
             <p>{sql}</p>
-            {/* <Formatter /> */}
+            <Formatter />
           </Col>
         </Row>
       </Container>

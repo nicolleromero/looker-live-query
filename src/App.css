@@ -55,3 +55,7 @@ h1 {
 .add-button {
   width: 100px;
 }
+
+.format-sql {
+  text-align: left;
+}
