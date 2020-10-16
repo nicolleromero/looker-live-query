@@ -1729,7 +1729,7 @@ export default function DataModal() {
     var queryObj = jslinq(countryData);
     var result = queryObj
     .where(function(el){
-        return (el.Score === 2.853 || el.Score === 3.083);
+        return (el.Score > 7);
     })
     .toList();
 
@@ -1751,16 +1751,14 @@ export default function DataModal() {
             </Button>
             <Modal show={show} onHide={handleClose} animation={false}>
                 <Modal.Header closeButton>
-                <Modal.Title>Scores</Modal.Title>
+                <Modal.Title>Results</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>{elements}</Modal.Body>
                 <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
                     Close
                 </Button>
-                <Button variant="primary" onClick={handleClose}>
-                    Save Changes
-                </Button>
+                
                 </Modal.Footer>
             </Modal>
           
