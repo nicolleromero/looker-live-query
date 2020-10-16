@@ -1,12 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { QueryBuilderComponent } from '@syncfusion/ej2-react-querybuilder';
-import { Button, Col, Container, Form, FormControl, Nav, Navbar, Row } from 'react-bootstrap';
+import { Col, Container, Nav, Navbar, Row } from 'react-bootstrap';
 
 
 import ProjectForm from './ProjectForm';
 import ClauseForm from './ClauseForm';
+import ClauseList from './ClauseList';
 import Formatter from './Formatter';
-import Prism from './prism';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -51,9 +51,9 @@ export default function App() {
   const [project, setProject] = useState('');
   const [dataset, setDataset] = useState('');
   const [table, setTable] = useState('');
-  const [clause, setClause] = useState('');
+  const [type, setType] = useState('');
   const [header, setHeader] = useState('');
-  const [clauseQuery, setClauseQuery] = useState('');
+  const [clauses, setClauses] = useState([]);
 
   const sql = queryBuilderRef.current?.getSqlFromRules(rule);
 
@@ -64,17 +64,25 @@ export default function App() {
   const select = "SELECT * FROM " + "'" + fullName + "'";
   const condition = "WHERE " + sql;
 
-  function handleSetClause(event) {
-    event.preventDefault();
+  function handleSetClause(newClause) {
 
-    const newClause = "" + clause + " " + header;
-    setClauseQuery(newClause);
+    const updatedClauses = [...clauses, newClause];
 
-    console.log("newClause", clauseQuery);
-
-    setClause('');
+    setClauses(updatedClauses);
+    setType('');
     setHeader('');
   }
+
+  function concatClauses(list) {
+    let newString = '';
+    for (let item of list) {
+      let query = item.type + " " + item.header;
+      newString = newString + " " + query;
+    }
+    return newString;
+  }
+
+  let clauseQuery = concatClauses(clauses);
 
   return (
     <React.Fragment>
@@ -118,11 +126,15 @@ export default function App() {
             <Row>
               <Col className="middle">
                 <ClauseForm
-                  clause={clause}
                   header={header}
-                  onSelectClause={setClause}
+                  type={type}
                   onSelectHeader={setHeader}
+                  onSelectType={setType}
                   onSubmitClause={handleSetClause}
+                />
+                <ClauseList
+                  clauses={clauses}
+                  onSetClauses={setClauses}
                 />
               </Col>
             </Row>

@@ -1,21 +1,29 @@
-import React, { useRef, useState } from 'react';
-import { Button, Container, Form, FormControl, Row } from 'react-bootstrap';
+import React, { useState } from 'react';
 
 export default function ClauseForm(props) {
 
   const CLAUSES = ['GROUP BY', 'ORDER BY', 'HAVING', 'LIMIT'];
 
+  function handleNewClause(event) {
+    event.preventDefault();
+
+    const newClause = { id: Date.now(), type: props.type, header: props.header };
+    props.onSubmitClause(newClause);
+    console.log("New Clause:", newClause);
+
+  }
+
   return (
     <div>
       <div className="center-children">
-        <form onSubmit={props.onSubmitClause}>
+        <form onSubmit={handleNewClause}>
           <select
             name="region"
             placeholder="Select a clause"
-            value={props.clause}
+            value={props.type}
             className="form-field"
             id="fixed"
-            onChange={(e) => props.onSelectClause(e.target.value)}
+            onChange={(e) => props.onSelectType(e.target.value)}
           >
             <option className="form-field" value="">Select a clause</option>
             {CLAUSES.map((clause, index) => {
