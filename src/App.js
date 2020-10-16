@@ -133,6 +133,7 @@ export default function App() {
                     query={select + condition + clauseQuery}
                   />
                 )}
+                <a className="float-right pink" href="something"><p>Export LookerML</p></a>
               </Col>
             </Row>
           </Row>
