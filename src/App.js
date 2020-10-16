@@ -19,13 +19,36 @@ const columnData = [
     operators: [{ key: 'equal', value: 'equal' },
     { key: 'greaterthan', value: 'greaterthan' }, { key: 'lessthan', value: 'lessthan' }]
   },
-  { field: 'Name', label: 'Name', type: 'string' },
-  { field: 'Category', label: 'Category', type: 'string' },
-  { field: 'SerialNo', label: 'SerialNo', type: 'string' },
-  { field: 'InvoiceNo', label: 'InvoiceNo', type: 'string' },
-  { field: 'Status', label: 'Status', type: 'string' }
-];
-
+  { field: 'Overall rank', label: 'Overall rank', type: 'number',
+  operators: [{ key: 'equal', value: 'equal' },
+  { key: 'greaterthan', value: 'greaterthan' }, { key: 'lessthan', value: 'lessthan' }]
+  }, 
+  { field: 'Country or Region', label: 'Country or Region', type: 'string' },
+  { field: 'Score', label: 'Score', type: 'number',
+  operators: [{ key: 'equal', value: 'equal' },
+  { key: 'greaterthan', value: 'greaterthan' }, { key: 'lessthan', value: 'lessthan' }]
+  },
+  { field: 'GDP per capita', label: 'GDP per capita', type: 'number',
+  operators: [{ key: 'equal', value: 'equal' },
+  { key: 'greaterthan', value: 'greaterthan' }, { key: 'lessthan', value: 'lessthan' }]
+  },
+  { field: 'Healthy life expectancy', label: 'Healthy life expectancy', type: 'number',
+  operators: [{ key: 'equal', value: 'equal' },
+  { key: 'greaterthan', value: 'greaterthan' }, { key: 'lessthan', value: 'lessthan' }]
+  },
+  { field: 'Freedom to make life choices', label: 'Freedom to make life choices', type: 'number',
+  operators: [{ key: 'equal', value: 'equal' },
+  { key: 'greaterthan', value: 'greaterthan' }, { key: 'lessthan', value: 'lessthan' }]
+  },
+  { field: 'Generosity', label: 'Generosity', type: 'number',
+  operators: [{ key: 'equal', value: 'equal' },
+  { key: 'greaterthan', value: 'greaterthan' }, { key: 'lessthan', value: 'lessthan' }]
+  },
+  { field: 'Perceptions of corruption', label: 'Perceptions of corruption', type: 'number',
+  operators: [{ key: 'equal', value: 'equal' },
+  { key: 'greaterthan', value: 'greaterthan' }, { key: 'lessthan', value: 'lessthan' }]
+  }
+]
 const hardwareColumnData = [
   { field: 'TaskID', label: 'Task ID', type: 'number' },
   { field: 'Name', label: 'Name', type: 'string' },
