@@ -26,6 +26,8 @@
   margin-right: 150px;
   margin-top: 20px;
   align-items: center;
+
+
 }
 
 .preview {
@@ -38,6 +40,7 @@
   border-color: black;
   min-height: 200px;
   background-color: rgba(0, 0, 0, 0.783) !important;
+
 }
 
 h1 {
@@ -54,6 +57,8 @@ h1 {
   font-size: 16px;
   border-width: 1px;
   border-color: rgb(214, 210, 210) !important;
+  box-shadow: 0 4px 6px -6px gray;
+
   /* display: flex;
   flex-direction: row; */
 }
@@ -77,6 +82,7 @@ button {
 
 .format-sql {
   text-align: left;
+
 }
 
 .pink {
