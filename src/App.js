@@ -2,10 +2,14 @@ import React, { useEffect, useRef, useState } from 'react';
 import { QueryBuilderComponent } from '@syncfusion/ej2-react-querybuilder';
 import { Col, Container, Navbar, Row } from 'react-bootstrap';
 
+
 import ProjectForm from './ProjectForm';
 import Formatter from './Formatter';
+import Prism from './prism';
 
 import './App.css';
+import './prism.css';
+
 
 const columnData = [
   {
