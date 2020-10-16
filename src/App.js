@@ -117,13 +117,15 @@ export default function App() {
               />
             </Col>
           </Row>
-          <Col className="middle preview">
-            {project && dataset && table && (
-              <Formatter
-                query={select + condition + clauseQuery}
-              />
-            )}
-          </Col>
+          <Row className="center-children">
+            <Col className="middle preview">
+              {project && dataset && table && (
+                <Formatter
+                  query={select + condition + clauseQuery}
+                />
+              )}
+            </Col>
+          </Row>
         </Row>
       </Container>
     </div>

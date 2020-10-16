@@ -27,7 +27,11 @@
   border-width: 1px;
   border-color: #004085;
   min-height: 200px;
+  width: 600px;
+  align-self: center;
   background-color: black;
+  margin-left: 250px;
+  margin-right: 250px;
 }
 
 h1 {
