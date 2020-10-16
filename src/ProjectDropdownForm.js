@@ -1,30 +1,45 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import TABLES from './tables.json';
+
+const PROJECTS = [
+  { id: 'lookerdata', name: 'lookerdata' }
+];
 
 export default function ProjectDropdownForm(props) {
   const { sdk } = props;
-
-  useEffect(() => {
-    sdk.ok(sdk.all_projects()).then((data) => console.log('projects', data))
-  }, [sdk]);
 
   return (
     <div>
       <div className="center-children">
         <div>
-          <input
-            type="text"
-            className="form-field"
+          <select
             placeholder="Select a project"
             value={props.project}
-            onChange={(e) => props.onSelectProject(e.target.value)}
-          />
-          <input
-            type="text"
             className="form-field"
+            id="fixed"
+            onChange={(e) => props.onSelectProject(e.target.value)}
+          >
+            <option className="form-field" value="">Select a project</option>
+            {PROJECTS.map((option) => {
+              return (
+                <option key={option.id} value={option.name}>{option.name}</option>
+              )
+            })}
+          </select>
+          <select
             placeholder="Select a dataset"
             value={props.dataset}
+            className="form-field"
+            id="fixed"
             onChange={(e) => props.onSelectDataset(e.target.value)}
-          />
+          >
+            <option className="form-field" value="">Select a dataset</option>
+            {TABLES.map((option) => {
+              return (
+                <option key={option.name} value={option.name}>{option.name}</option>
+              )
+            })}
+          </select>
           <input
             type="text"
             className="form-field"

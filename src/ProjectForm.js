@@ -6,6 +6,7 @@ export default function ProjectForm(props) {
   const extension = useContext(ExtensionContext);
 
   if (extension) {
+    console.log({ extension })
     return <ProjectDropdownForm {...props} sdk={extension.core40SDK} />;
   }
 

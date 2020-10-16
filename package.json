@@ -4,9 +4,9 @@
   "private": true,
   "dependencies": {
     "@looker/components": "^0.9.13",
-    "@looker/extension-sdk": "^0.11.2",
-    "@looker/extension-sdk-react": "^0.6.4",
-    "@looker/sdk": "^0.3.4-beta.2",
+    "@looker/extension-sdk": "^0.12.4",
+    "@looker/extension-sdk-react": "^0.6.5",
+    "@looker/sdk": "^0.3.7-beta.4",
     "@syncfusion/ej2-react-querybuilder": "^18.3.40",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
