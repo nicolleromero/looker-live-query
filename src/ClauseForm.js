@@ -6,9 +6,9 @@ export default function ClauseForm(props) {
   const CLAUSES = ['GROUP BY', 'ORDER BY', 'HAVING', 'LIMIT'];
 
   return (
-    <Container>
-      <Row className="center-children">
-        <Form onSubmit={props.onSubmitClause}>
+    <div>
+      <div className="center-children">
+        <form onSubmit={props.onSubmitClause}>
           <select
             name="region"
             placeholder="Select a clause"
@@ -24,7 +24,7 @@ export default function ClauseForm(props) {
               )
             })}
           </select>
-          <FormControl
+          <input
             type="text"
             className="form-field"
             placeholder="Select a column"
@@ -38,8 +38,8 @@ export default function ClauseForm(props) {
           >
             Add Clause
           </button>
-        </Form>
-      </Row>
-    </Container>
+        </form>
+      </div>
+    </div>
   );
 }

@@ -6,22 +6,22 @@ export default function ProjectForm(props) {
   return (
     <div>
       <div className="center-children">
-        <Form>
-          <FormControl
+        <div>
+          <input
             type="text"
             className="form-field"
             placeholder="Select a project"
             value={props.project}
             onChange={(e) => props.onSelectProject(e.target.value)}
           />
-          <FormControl
+          <input
             type="text"
             className="form-field"
             placeholder="Select a dataset"
             value={props.dataset}
             onChange={(e) => props.onSelectDataset(e.target.value)}
           />
-          <FormControl
+          <input
             type="text"
             className="form-field"
             placeholder="Select a table"
@@ -36,7 +36,7 @@ export default function ProjectForm(props) {
           >
             Submit
           </Button> */}
-        </Form>
+        </div>
       </div>
     </div>
   );

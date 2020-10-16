@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { QueryBuilderComponent } from '@syncfusion/ej2-react-querybuilder';
-import { Col, Container, Navbar, Row } from 'react-bootstrap';
+import { Button, Col, Container, Form, FormControl, Nav, Navbar, Row } from 'react-bootstrap';
 
 
 import ProjectForm from './ProjectForm';
@@ -8,6 +8,7 @@ import ClauseForm from './ClauseForm';
 import Formatter from './Formatter';
 import Prism from './prism';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import './prism.css';
 
@@ -76,58 +77,67 @@ export default function App() {
   }
 
   return (
-    <div className="site-wrapper">
-      <Container>
-        <Navbar id="cover-image">
-          <Row className="d-none d-lg-block justify-content-between offset-2">
-            <h1 className="h1">Live Query Builder</h1>
-          </Row>
-        </Navbar>
-      </Container>
-      <Container>
-        <Row>
-          <Col className="middle">
-            <ProjectForm
-              project={project}
-              dataset={dataset}
-              table={table}
-              onSelectProject={setProject}
-              onSelectDataset={setDataset}
-              onSelectTable={setTable}
-            />
-          </Col>
+    <React.Fragment>
+      <Navbar bg="dark" variant="dark" className="dark">
+        <Navbar.Brand href="#home">JOIN Hackathon</Navbar.Brand>
+        <Nav className="mr-auto">
+          <Nav.Link href="#home">Home</Nav.Link>
+          <Nav.Link href="#features">Features</Nav.Link>
+          <Nav.Link className="pink" href="#pricing">Awesomeness</Nav.Link>
+        </Nav>
+        <Navbar.Text>
+          Created by: <a href="#login">Stephanie & Nicolle</a>
+        </Navbar.Text>
+      </Navbar>
+      <div className="site-wrapper">
+        <Row className="center-children">
+          <h1 className="h1">Live Query Builder</h1>
         </Row>
-        <Row>
-          <Col className="middle">
-            <QueryBuilderComponent
-              ref={queryBuilderRef}
-              columns={columnData}
-              enableNotCondition={true}
-              ruleChange={(e) => setRule(e.rule)}
-            />
-          </Col>
+        <Container>
           <Row>
             <Col className="middle">
-              <ClauseForm
-                clause={clause}
-                header={header}
-                onSelectClause={setClause}
-                onSelectHeader={setHeader}
-                onSubmitClause={handleSetClause}
+              <ProjectForm
+                project={project}
+                dataset={dataset}
+                table={table}
+                onSelectProject={setProject}
+                onSelectDataset={setDataset}
+                onSelectTable={setTable}
               />
             </Col>
           </Row>
-          <Row className="center-children">
-            <Col className="middle preview">
-              {project && dataset && table && (
-                <Formatter
-                  query={select + condition + clauseQuery}
-                />
-              )}
+          <Row>
+            <Col className="middle">
+              <QueryBuilderComponent
+                ref={queryBuilderRef}
+                columns={columnData}
+                enableNotCondition={true}
+                ruleChange={(e) => setRule(e.rule)}
+              />
             </Col>
+            <Row>
+              <Col className="middle">
+                <ClauseForm
+                  clause={clause}
+                  header={header}
+                  onSelectClause={setClause}
+                  onSelectHeader={setHeader}
+                  onSubmitClause={handleSetClause}
+                />
+              </Col>
+            </Row>
+            <Row>
+              <Col className="middle preview">
+                {project && dataset && table && (
+                  <Formatter
+                    query={select + condition + clauseQuery}
+                  />
+                )}
+              </Col>
+            </Row>
           </Row>
-        </Row>
-      </Container>
-    </div>
+        </Container>
+      </div>
+    </React.Fragment>
   );
 }

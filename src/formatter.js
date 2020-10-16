@@ -10,7 +10,7 @@ export default function Formatter(props) {
   const highlighted = Prism.highlight(formattedText, Prism.languages.sql, 'sql');
 
   return (
-    <div className="center-children">
+    <div>
       <pre className="format-sql">
         <code className="language-SQL" dangerouslySetInnerHTML={{ __html: highlighted }} />
       </pre>

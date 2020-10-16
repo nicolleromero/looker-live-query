@@ -7,6 +7,10 @@
   padding-bottom: 100px;
 }
 
+.dark {
+  background-color: rgba(0, 0, 0, 0.783) !important;
+}
+
 .center-children {
   display: flex;
   justify-content: center;
@@ -15,7 +19,8 @@
 }
 
 .middle {
-  width: 80%;
+  width: 800px;
+  height: auto;
   margin-left: 150px;
   margin-right: 150px;
   margin-top: 20px;
@@ -23,15 +28,15 @@
 }
 
 .preview {
+  margin-top: 30px;
+  padding: 20px;
+  margin-left: 192px !important;
+  height: auto;
   border-style: solid;
   border-width: 1px;
-  border-color: #004085;
+  border-color: black;
   min-height: 200px;
-  width: 600px;
-  align-self: center;
-  background-color: black;
-  margin-left: 250px;
-  margin-right: 250px;
+  background-color: rgba(0, 0, 0, 0.783) !important;
 }
 
 h1 {
@@ -41,7 +46,7 @@ h1 {
 
 .form-field {
   width: 250px !important;
-  height: 20px;
+  height: 40px;
   padding: 10px;
   margin: 5px;
   text-align: center;
@@ -69,4 +74,8 @@ button {
 
 .format-sql {
   text-align: left;
+}
+
+.pink {
+  color: #E4165B !important;
 }
