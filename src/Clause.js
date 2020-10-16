@@ -13,7 +13,7 @@ export default function Clause(props) {
   return (
     <ListGroup.Item>
       <div className="center-children">
-        <span className="item">{props.clause.type} {props.clause.header}</span>
+        <span className="item">{props.clause.type} {props.clause.header} {props.clause.descAsc}</span>
         <button
           className="btn btn-sm delete-button"
           onClick={() => handleDeleteClause(props.clause.id)}

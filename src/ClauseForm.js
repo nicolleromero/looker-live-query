@@ -9,7 +9,7 @@ export default function ClauseForm(props) {
   function handleNewClause(event) {
     event.preventDefault();
 
-    const newClause = { id: Date.now(), type: props.type, header: props.header };
+    const newClause = { id: Date.now(), type: props.type, header: props.header, descAsc: props.descAsc };
     props.onSubmitClause(newClause);
     console.log("New Clause:", newClause);
 
@@ -59,6 +59,19 @@ export default function ClauseForm(props) {
               })}
             </select>
           }
+          {props.type === "ORDER BY" && (
+            <select
+              placeholder=""
+              value={props.descAsc}
+              className="form-field"
+              id="fixed2"
+              onChange={(e) => props.onSelectDescAsc(e.target.value)}
+            >
+              <option className="form-field" value=""></option>
+              <option className="form-field" value="DESC">Descending</option>
+              <option className="form-field" value="ASC">Ascendinng</option>
+            </select>
+          )}
           <button
             type="submit"
             className="add-button button"

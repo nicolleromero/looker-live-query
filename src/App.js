@@ -53,6 +53,7 @@ export default function App() {
   const [table, setTable] = useState('');
   const [type, setType] = useState('');
   const [header, setHeader] = useState('');
+  const [descAsc, setDescAsc] = useState('');
   const [clauses, setClauses] = useState([]);
 
   const sql = queryBuilderRef.current?.getSqlFromRules(rule);
@@ -71,15 +72,16 @@ export default function App() {
     setClauses(updatedClauses);
     setType('');
     setHeader('');
+    setDescAsc('');
   }
 
   function concatClauses(list) {
     let newString = '';
     for (let item of list) {
-      let query = item.type + " " + item.header;
+      let query = item.type + " " + item.header + " " + item.descAsc;
       newString = newString + " " + query;
     }
-    return newString;
+    return newString.trim();
   }
 
   let clauseQuery = concatClauses(clauses);
@@ -129,8 +131,10 @@ export default function App() {
                   columnData={columnData}
                   header={header}
                   type={type}
+                  descAsc={descAsc}
                   onSelectHeader={setHeader}
                   onSelectType={setType}
+                  onSelectDescAsc={setDescAsc}
                   onSubmitClause={handleSetClause}
                 />
                 <ClauseList
