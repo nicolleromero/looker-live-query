@@ -88,7 +88,7 @@ export default function App() {
   console.log('RULE', rule);
   console.log('SQL', sql);
 
-  const fullName = "" + project + "." + dataset + "." + table;
+  const fullName = "" + project.trim() + "." + dataset.trim() + "." + table.trim();
   const select = "SELECT * FROM " + "'" + fullName + "'";
   const condition = "WHERE " + sql;
 
