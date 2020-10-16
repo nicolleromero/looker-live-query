@@ -182,7 +182,8 @@ export default function App() {
             </Row>
             <Row>
               <Col className="middle preview">
-                <DataModal />
+                <DataModal
+                 />
               </Col>
             </Row>
           </Row>
