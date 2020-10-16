@@ -14,7 +14,7 @@ import './App.css';
 import './prism.css';
 
 
-const columnData = [
+const defaultColumnData = [
   {
     field: 'Overall rank', label: 'Overall rank', type: 'number',
     operators: [{ key: 'equal', value: 'equal' },
@@ -53,25 +53,6 @@ const columnData = [
   }
 ];
 
-const hardwareColumnData = [
-  { field: 'TaskID', label: 'Task ID', type: 'number' },
-  { field: 'Name', label: 'Name', type: 'string' },
-  { field: 'Category', label: 'Category', type: 'string' },
-  { field: 'SerialNo', label: 'Serial No', type: 'string' },
-  { field: 'InvoiceNo', label: 'Invoice No', type: 'string' },
-  { field: 'Status', label: 'Status', type: 'string' }
-];
-
-const employeeColumnData = [
-  { field: 'EmployeeID', label: 'EmployeeID', type: 'number' },
-  { field: 'FirstName', label: 'FirstName', type: 'string' },
-  { field: 'TitleOfCourtesy', label: 'Title Of Courtesy', type: 'boolean', values: ['Mr.', 'Mrs.'] },
-  { field: 'Title', label: 'Title', type: 'string' },
-  { field: 'HireDate', label: 'HireDate', type: 'date', format: 'dd/MM/yyyy' },
-  { field: 'Country', label: 'Country', type: 'string' },
-  { field: 'City', label: 'City', type: 'string' }
-];
-
 export default function App() {
   const queryBuilderRef = useRef(null);
   const [rule, setRule] = useState(undefined);
@@ -82,11 +63,9 @@ export default function App() {
   const [header, setHeader] = useState('');
   const [descAsc, setDescAsc] = useState('');
   const [clauses, setClauses] = useState([]);
+  const [columnData, setColumnData] = useState(defaultColumnData);
 
   const sql = queryBuilderRef.current?.getSqlFromRules(rule);
-
-  console.log('RULE', rule);
-  console.log('SQL', sql);
 
   const fullName = "" + project.trim() + "." + dataset.trim() + "." + table.trim();
   const select = "SELECT * FROM " + "'" + fullName + "'";
@@ -128,7 +107,7 @@ export default function App() {
       </Navbar>
       <div className="site-wrapper">
         <Row className="center-children">
-          <h1 className="h1">Live Query Builder ✌︎</h1>
+          <h1>Live Query Builder ✌︎</h1>
         </Row>
         <Container>
           <Row>
@@ -140,6 +119,7 @@ export default function App() {
                 onSelectProject={setProject}
                 onSelectDataset={setDataset}
                 onSelectTable={setTable}
+                onChangeColumnData={setColumnData}
               />
             </Col>
           </Row>
