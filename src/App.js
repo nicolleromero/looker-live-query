@@ -14,11 +14,6 @@ import './prism.css';
 
 
 const columnData = [
-  {
-    field: 'TaskID', label: 'TaskID', type: 'number',
-    operators: [{ key: 'equal', value: 'equal' },
-    { key: 'greaterthan', value: 'greaterthan' }, { key: 'lessthan', value: 'lessthan' }]
-  },
   { field: 'Overall rank', label: 'Overall rank', type: 'number',
   operators: [{ key: 'equal', value: 'equal' },
   { key: 'greaterthan', value: 'greaterthan' }, { key: 'lessthan', value: 'lessthan' }]
