@@ -52,7 +52,8 @@ export default function App() {
   console.log('SQL', sql);
 
   const fullName = "" + project + "." + dataset + "." + table;
-  const select = "SELECT * FROM " + "`" + fullName + "`";
+  const select = "SELECT * FROM " + "'" + fullName + "'";
+  const condition = "WHERE " + sql;
 
 
   return (
@@ -88,10 +89,12 @@ export default function App() {
           </Col>
           <Col className="middle preview">
             {project && dataset && table && (
-              <p>{select}</p>
+              // <p>{select}</p>
+              // <p>{sql}</p>
+              <Formatter
+                query={select + condition}
+              />
             )}
-            <p>{sql}</p>
-            <Formatter />
           </Col>
         </Row>
       </Container>

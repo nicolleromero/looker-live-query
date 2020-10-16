@@ -6,8 +6,8 @@ export default function Formatter(props) {
 
     // update it
     const sqlText = "SELECT * FROM table1 WHERE customers > 100;";
-    const formattedText = sqlFormatter.format(sqlText);
-    console.log(formattedText);
+    const formattedText = sqlFormatter.format(props.query);
+    console.log(props.query);
 
 
     return (
