@@ -7,6 +7,7 @@ import ProjectForm from './ProjectForm';
 import ClauseForm from './ClauseForm';
 import ClauseList from './ClauseList';
 import Formatter from './Formatter';
+import DataModal from './DataModal';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -177,6 +178,11 @@ export default function App() {
                   />
                 )}
                 <a className="float-right pink" href="something"><p>Export LookerML</p></a>
+              </Col>
+            </Row>
+            <Row>
+              <Col className="middle preview">
+                <DataModal />
               </Col>
             </Row>
           </Row>
