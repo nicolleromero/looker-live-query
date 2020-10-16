@@ -56,6 +56,12 @@ h1 {
   width: 100px;
 }
 
+button {
+  border-style: none;
+  background-color: #ffff;
+  color: #E4165B;
+}
+
 .format-sql {
   text-align: left;
 }

@@ -4,6 +4,7 @@ import { Col, Container, Navbar, Row } from 'react-bootstrap';
 
 
 import ProjectForm from './ProjectForm';
+import ClauseForm from './ClauseForm';
 import Formatter from './Formatter';
 import Prism from './prism';
 
@@ -49,6 +50,9 @@ export default function App() {
   const [project, setProject] = useState('');
   const [dataset, setDataset] = useState('');
   const [table, setTable] = useState('');
+  const [clause, setClause] = useState('');
+  const [header, setHeader] = useState('');
+  const [clauseQuery, setClauseQuery] = useState('');
 
   const sql = queryBuilderRef.current?.getSqlFromRules(rule);
 
@@ -59,6 +63,17 @@ export default function App() {
   const select = "SELECT * FROM " + "'" + fullName + "'";
   const condition = "WHERE " + sql;
 
+  function handleSetClause(event) {
+    event.preventDefault();
+
+    const newClause = "" + clause + " " + header;
+    setClauseQuery(newClause);
+
+    console.log("newClause", clauseQuery);
+
+    setClause('');
+    setHeader('');
+  }
 
   return (
     <div className="site-wrapper">
@@ -91,12 +106,21 @@ export default function App() {
               ruleChange={(e) => setRule(e.rule)}
             />
           </Col>
+          <Row>
+            <Col className="middle">
+              <ClauseForm
+                clause={clause}
+                header={header}
+                onSelectClause={setClause}
+                onSelectHeader={setHeader}
+                onSubmitClause={handleSetClause}
+              />
+            </Col>
+          </Row>
           <Col className="middle preview">
             {project && dataset && table && (
-              // <p>{select}</p>
-              // <p>{sql}</p>
               <Formatter
-                query={select + condition}
+                query={select + condition + clauseQuery}
               />
             )}
           </Col>
