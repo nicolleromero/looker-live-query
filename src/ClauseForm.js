@@ -27,10 +27,10 @@ export default function ClauseForm(props) {
             id="fixed"
             onChange={(e) => props.onSelectType(e.target.value)}
           >
-            <option className="form-field" value="">Select a clause</option>
+            <option className="form-field gray" value="">Select a clause</option>
             {CLAUSES.map((clause, index) => {
               return (
-                <option key={index} value={clause}>{clause}</option>
+                <option className="gray" key={index} value={clause}>{clause}</option>
               )
             })}
           </select>
@@ -54,7 +54,7 @@ export default function ClauseForm(props) {
               <option className="form-field" value="">Select a column</option>
               {COLUMN_HEADERS.map((option, index) => {
                 return (
-                  <option key={index} value={option}>{option}</option>
+                  <option className="gray" key={index} value={option}>{option}</option>
                 )
               })}
             </select>
@@ -67,9 +67,9 @@ export default function ClauseForm(props) {
               id="fixed2"
               onChange={(e) => props.onSelectDescAsc(e.target.value)}
             >
-              <option className="form-field" value=""></option>
-              <option className="form-field" value="DESC">Descending</option>
-              <option className="form-field" value="ASC">Ascendinng</option>
+              <option className="form-field gray" value=""></option>
+              <option className="form-field gray" value="DESC">Descending</option>
+              <option className="form-field gray" value="ASC">Ascendinng</option>
             </select>
           )}
           <button

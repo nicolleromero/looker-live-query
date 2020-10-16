@@ -82,3 +82,7 @@ button {
 .pink {
   color: #E4165B !important;
 }
+
+.gray {
+  color: rgb(187, 184, 184);
+}
