@@ -1,5 +1,6 @@
 import React, { Component, useState } from "react";
 import { Container, Row, Col, ListGroup, Button, Modal } from 'react-bootstrap';
+import jslinq from 'jslinq';
 
 export default function DataModal() {
     const countryData = [
@@ -1725,14 +1726,21 @@ export default function DataModal() {
     const handleClose = () => setShow(false);
     var jsonQuery = require('json-query');
 
-    var result = jsonQuery('countryData', {data: countryData}).value;
+    var queryObj = jslinq(countryData);
+    var result = queryObj
+    .where(function(el){
+        return (el.Score === 2.853 || el.Score === 3.083);
+    })
+    .toList();
+
+
     console.log('test');
     console.log(result);
 
 
 
     var elements = [];
-    for (const item of countryData)
+    for (const item of result)
         elements.push(<div key={item.Score}>{item["Country or region"]}</div>)
     // need to get the sql query , then parse through it?
     // get new json based on sql query??
