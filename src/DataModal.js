@@ -1723,12 +1723,19 @@ export default function DataModal() {
     const [show, setShow] = useState(false);
     const handleShow = () => setShow(true);
     const handleClose = () => setShow(false);
+    var jsonQuery = require('json-query');
+
+    var result = jsonQuery('countryData', {data: countryData}).value;
+    console.log('test');
+    console.log(result);
+
 
 
     var elements = [];
     for (const item of countryData)
-        elements.push(<div key={item.Score}>{item.Score}</div>)
+        elements.push(<div key={item.Score}>{item["Country or region"]}</div>)
     // need to get the sql query , then parse through it?
+    // get new json based on sql query??
     return (
         <React.Fragment>
             <Button variant="primary" onClick={handleShow}>
