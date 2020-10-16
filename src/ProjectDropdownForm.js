@@ -1,13 +1,11 @@
-import React, { useContext } from 'react';
-import { ExtensionContext } from '@looker/extension-sdk-react';
-import ProjectDropdownForm from './ProjectDropdownForm';
+import React, { useEffect } from 'react';
 
-export default function ProjectForm(props) {
-  const extension = useContext(ExtensionContext);
+export default function ProjectDropdownForm(props) {
+  const { sdk } = props;
 
-  if (extension) {
-    return <ProjectDropdownForm {...props} sdk={extension.core40SDK} />;
-  }
+  useEffect(() => {
+    sdk.ok(sdk.all_projects()).then((data) => console.log('projects', data))
+  }, [sdk]);
 
   return (
     <div>
