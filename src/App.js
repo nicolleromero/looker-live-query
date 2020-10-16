@@ -126,6 +126,7 @@ export default function App() {
             <Row>
               <Col className="middle">
                 <ClauseForm
+                  columnData={columnData}
                   header={header}
                   type={type}
                   onSelectHeader={setHeader}
