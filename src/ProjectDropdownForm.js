@@ -8,6 +8,10 @@ const PROJECTS = [
 export default function ProjectDropdownForm(props) {
   const { sdk } = props;
 
+  // For demo...
+  const table = TABLES.find(t => t.name === props.dataset);
+  const tables = [{ name: 'world-happiness' }, ...(table?.tables || [])];
+
   return (
     <div>
       <div className="center-children">
@@ -40,13 +44,20 @@ export default function ProjectDropdownForm(props) {
               )
             })}
           </select>
-          <input
-            type="text"
-            className="form-field"
+          <select
             placeholder="Select a table"
             value={props.table}
+            className="form-field"
+            id="fixed"
             onChange={(e) => props.onSelectTable(e.target.value)}
-          />
+          >
+            <option className="form-field" value="">Select a table</option>
+            {tables.map((option) => {
+              return (
+                <option key={option.name} value={option.name}>{option.name}</option>
+              )
+            })}
+          </select>
         </div>
       </div>
     </div>

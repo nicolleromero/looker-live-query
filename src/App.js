@@ -160,14 +160,13 @@ export default function App() {
                 <a className="float-right pink" href="something"><p>Export LookerML</p></a>
               </Col>
             </Row>
-            
           </Row>
           <Row>
-              <Col >
-                <DataModal
-                 />
-              </Col>
-            </Row>
+            <Col >
+              <DataModal
+              />
+            </Col>
+          </Row>
         </Container>
       </div>
     </React.Fragment>
