@@ -1,3 +1,17 @@
+# Live Query Builder
+
+![Demo](demo.gif)
+
+## About
+
+The Live Query Builder is a streamlined GUI built in React that offers an alternative approach to building, previewing, and editing a SQL query in real time. The GUI leverages the React Query Builder UI by Syncfusion and supports advanced filters and SQL operators and clauses. Users can dynamically update the query and compose a SQL query from Looker data (extensible to hit Looker’s API). We used the Looker Extension framework to host the project and added a modal component to demonstrate how query results could be displayed on the same page as the SQL query. SQL text formatting and highlighting were achieved using SQL Formatter and Prism, respectively.
+
+Special thanks to the following sites and helpful tutorials:
+
+- [SQL Formatter](https://github.com/mrdziuban/sql-formatter#es6)
+- [Prism](https://prismjs.com/)
+- [Syncfusion](https://ej2.syncfusion.com/react/documentation/api/query-builder/)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

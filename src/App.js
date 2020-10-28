@@ -107,7 +107,7 @@ export default function App() {
       </Navbar>
       <div className="site-wrapper">
         <Row className="center-children">
-          <h1>Live Query Builder ✌︎</h1>
+          <h1>Live Query Builder</h1>
         </Row>
         <Container>
           <Row>
